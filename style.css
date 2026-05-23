@@ -1,3 +1,6 @@
+Here is the pure CSS code that matches your original VSCode-inspired dark theme design. You can paste this directly into your existing HTML file.
+
+```css
 /* =============================================
    ZOOMCODE - style.css
    VSCode-inspired dark theme for mobile C++ IDE
@@ -277,7 +280,6 @@ html, body {
 #editor-container.zoomed {
   transform: scale(var(--zoom-scale));
   transform-origin: top left;
-  /* When zoomed, expand container so scrolling works */
   width: calc(100% / var(--zoom-scale));
   height: calc(100% / var(--zoom-scale));
 }
@@ -641,18 +643,18 @@ html, body {
 }
 
 /* ===== SYNTAX HIGHLIGHTING COLORS ===== */
-.hl-keyword    { color: #c792ea; font-weight: 600; }   /* Purple */
-.hl-type       { color: #82aaff; }                      /* Blue */
-.hl-string     { color: #c3e88d; }                      /* Green */
-.hl-number     { color: #f78c6c; }                      /* Orange */
-.hl-comment    { color: #546e7a; font-style: italic; }  /* Gray italic */
-.hl-preproc    { color: #89ddff; }                      /* Cyan */
-.hl-function   { color: #82aaff; }                      /* Blue */
-.hl-operator   { color: #89ddff; }                      /* Cyan */
-.hl-namespace  { color: #ffcb6b; }                      /* Yellow */
-.hl-bracket    { color: #ffd580; }                      /* Yellow */
-.hl-bool       { color: #f78c6c; font-weight: 600; }   /* Orange bold */
-.hl-std        { color: #ffcb6b; }                      /* Yellow */
+.hl-keyword    { color: #c792ea; font-weight: 600; }
+.hl-type       { color: #82aaff; }
+.hl-string     { color: #c3e88d; }
+.hl-number     { color: #f78c6c; }
+.hl-comment    { color: #546e7a; font-style: italic; }
+.hl-preproc    { color: #89ddff; }
+.hl-function   { color: #82aaff; }
+.hl-operator   { color: #89ddff; }
+.hl-namespace  { color: #ffcb6b; }
+.hl-bracket    { color: #ffd580; }
+.hl-bool       { color: #f78c6c; font-weight: 600; }
+.hl-std        { color: #ffcb6b; }
 
 /* ===== ZOOM ANIMATION ===== */
 #editor-container {
@@ -685,3 +687,4 @@ html, body {
 @media (display-mode: standalone) {
   #status-bar { padding-bottom: env(safe-area-inset-bottom); }
 }
+```
