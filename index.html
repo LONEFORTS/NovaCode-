@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#0d0d14" />
+  <title>ZoomCode - C++ IDE for Mobile</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== TOOLBAR ===== -->
+  <div id="toolbar">
+    <div class="toolbar-left">
+      <div class="logo-wrap">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">ZoomCode</span>
+      </div>
+      <span class="lang-badge">C++17</span>
+    </div>
+    <div class="toolbar-right">
+      <button class="btn btn-secondary" id="btn-format" title="Format Code (Ctrl+Shift+F)">
+        <span>⬡</span> Format
+      </button>
+      <button class="btn btn-secondary" id="btn-clear" title="Clear Editor">
+        <span>✕</span> Clear
+      </button>
+      <button class="btn btn-secondary" id="btn-toggle-ui" title="Hide/Show UI (Ctrl+H)">
+        <span>⊟</span> Hide
+      </button>
+      <button class="btn btn-run" id="btn-run" title="Run Code (Ctrl+R)">
+        <span>▶</span> Run
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== MAIN EDITOR AREA ===== -->
+  <div id="main-area">
+
+    <!-- Line Numbers -->
+    <div id="line-numbers" aria-hidden="true">
+      <div class="line-num">1</div>
+    </div>
+
+    <!-- Editor Container -->
+    <div id="editor-container">
+      <!-- Syntax highlighted layer (behind) -->
+      <pre id="highlight-layer" aria-hidden="true"><code id="highlight-code"></code></pre>
+      <!-- Actual textarea (on top, transparent) -->
+      <textarea
+        id="code-editor"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        autocomplete="off"
+        placeholder="// Start typing your C++ code here...&#10;// Ctrl+R → Run | Ctrl+H → Hide UI | Ctrl+Shift+F → Format&#10;&#10;#include &lt;iostream&gt;&#10;using namespace std;&#10;&#10;int main() {&#10;    cout &lt;&lt; &quot;Hello from ZoomCode!&quot; &lt;&lt; endl;&#10;    return 0;&#10;}"
+      ></textarea>
+    </div>
+
+  </div>
+
+  <!-- ===== OUTPUT PANEL ===== -->
+  <div id="output-panel">
+    <div id="output-header">
+      <div class="output-title">
+        <span id="output-icon">◉</span>
+        <span>Output</span>
+        <span id="compile-time"></span>
+      </div>
+      <div class="output-actions">
+        <span id="compile-badge"></span>
+        <button class="btn-icon" id="btn-clear-output" title="Clear Output">✕</button>
+      </div>
+    </div>
+    <pre id="output-content"><span class="output-hint">// Press ▶ Run or Ctrl+R to compile and run your C++ code...</span></pre>
+  </div>
+
+  <!-- ===== STATUS BAR ===== -->
+  <div id="status-bar">
+    <div class="status-left">
+      <span id="status-dot" class="dot-ready"></span>
+      <span id="status-text">Ready</span>
+    </div>
+    <div class="status-center" id="status-shortcuts">
+      Ctrl+R: Run &nbsp;|&nbsp; Ctrl+H: Hide &nbsp;|&nbsp; Ctrl+Shift+F: Format
+    </div>
+    <div class="status-right">
+      <span id="status-zoom">Zoom: 100%</span>
+      <span id="status-lines">Ln 1</span>
+    </div>
+  </div>
+
+  <!-- ===== LOADING OVERLAY ===== -->
+  <div id="loading-overlay">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <div class="loading-text">Compiling C++ code...</div>
+      <div class="loading-sub">Using Piston API (Free)</div>
+    </div>
+  </div>
+
+  <!-- ===== NOTIFICATION TOAST ===== -->
+  <div id="toast"></div>
+
+  <!-- ===== INPUT MODAL (for cin) ===== -->
+  <div id="input-modal">
+    <div class="modal-box">
+      <div class="modal-title">📥 Program Input (stdin)</div>
+      <div class="modal-subtitle">Your code uses <code>cin</code> — enter input below:</div>
+      <textarea id="stdin-input" placeholder="Enter input here (one value per line)..." rows="4"></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="btn-cancel-input">Cancel</button>
+        <button class="btn btn-run" id="btn-submit-input">▶ Run with Input</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+        </html>
+          
